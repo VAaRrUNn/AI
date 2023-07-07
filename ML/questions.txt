@@ -1,0 +1,1 @@
+how can we just include X inside np.sum((h-y) * X) ??? check linear regression y=theta0 * x + c, and see for dCost/dtheta. 

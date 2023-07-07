@@ -1,0 +1,229 @@
+collect the data
+on the whole dataset (ig it's better):
+	handle missing values
+	features selection 
+	features transformation (and all this kinda stuff)
+	correlation etc
+
+on the train dataset :
+	outlier detection 
+	normalization (save it for later :) )
+	PCA (and other things like this)
+
+
+Specific steps in full process.
+1. first is to analyse the dataset (what it's all about)
+2. Now You need to handle the missing values
+3. After that go on for identifying and handling the outliers
+
+
+1. Missing values
+2. Outlier handling
+3. Feature Engineering:
+    Feature transformation
+    Normalization, Scaling
+4. Feature Selection
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+
+STRUCTURE TO WRITE...
+
+MAIN HEADING (MAIN TOPIC):
+    
+    SUB-HEADNIG (DIFFERENT WAYS TO DO IT):
+        
+        EACH METHOD EXPLAINED WITH IT'S RESPECTIVE CODE SNIPPIT
+
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+        
+
+For missing values:
+
+    Delete the row/column
+
+    Replacing with something else:
+
+        Arbitrary value(like 0 or something)
+
+        Mean, Median, Mode
+
+        Previous, Next, etc
+
+        -------------------------------------------------------------------------------
+        BELOW IS ONLY FOR ONLY CATEGORICAL/OBJECT COLUMNS(I.E., INT/FLOAT ETC.)
+        Interpolation(finding the value using some kinda curve/line):
+            Linear:
+                df.interpolate(method="linear")
+
+                eg -> 1, 5, 2, NaN
+                find y = mx + c for near points(5, 2)
+                take y's as (5, 2) and x's as (1, 2)
+                if x are not defined you can start from 0 or 1
+                Now you can estimate value of NaN using y = mx+c for x = 3
+
+            Polynomial:
+                df.interpolate(method="polynomial", order=2)
+
+                you fit a kth degree polynomial instead of a line, you specify the k here
+
+        -------------------------------------------------------------------------------
+        FOR CATEGORICAL COLUMNS
+        Drop rows:
+            df.dropna(subset=['column_name'], inplace=True)
+
+        Fill with constant values:
+            df['column_name'].fillna('Unknown', inplace=True)
+
+        Fill with most frequent value:
+            most_frequent_value = df['column_name'].mode()[0]
+            df['column_name'].fillna(most_frequent_value, inplace=True)
+
+        Forward/backward fill:
+            df['column_name'].fillna(
+                method='ffill', inplace=True)  # Forward fill
+            df['column_name'].fillna(
+                method='bfill', inplace=True)  # Backward fill
+
+        Clustering algorithms like KNN, K-means etc to group the missing values into clustes.
+        take related columns / or the one's you think are the good, then just apply these algorithms
+        and make different clusters then lable the missing values accordingly.
+        ACCORDING TO ME WE SHOULD APPLY THESE CLUSTERING ALGO'S IF THE NUMBER OF MISSING VALUES IS REALLY BIG.
+
+        SKLEARN IMPUTERS(Only for Numerical data):
+            sklearn.impute.SimpleImputer():
+                It is a Univariate Imputer meaning It will take only one feature into account
+
+            sklearn.impute.IterativeImputer():
+                It build a regression model, you can define estimator etc.
+                For rows which have the row values not nun there are used for training and the nan values column is
+                what we wanna predict.
+
+            sklearn.impute.KNNImputer():
+                say you define K = 2, IT will look for 2 nearest rows using the other columns and then take their respective
+                prediction values and mean them.:)
+
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+
+Outlier Detection:
+
+An Outlier is a data point in a dataset that is distant from all the other observations. A
+data point that lies outside the overall distribution of the dataset.
+
+
+Reasons for outlier:
+    1. Variability in the dataset
+    2. An experimental measurement error 
+
+Impacts of having an Outlier:
+    1. Problems during statistical analysis
+    2. It may cause a significant impact on the mean and the standard deviation
+
+
+Visualization Techiniques:
+    1. Using scatter plots
+    2. Box plot
+    3. using z-score 
+    4. Usin the IOR range 
+
+Numerical Techiniques:
+    Z-score:
+        z-score of a value x in a distribution(whatever distribution it is) is equal to the value of that x 
+        in it's respective standard normal distribution.
+        z_score = (x - mean)/std 
+        if z_score > some_threshold  -> outlier.add() 
+        thereshold is commonly 3 i.e, 3stdev. 
+        As 99.7% of data fall under 3-stdev in a standard-Normal-Distribution. 
+        
+    IQR:
+        We calculate range using Max-Min which is not a good measure of things cause there can be outliers
+        Outliers are on the extreme ends i.e., either on the left or the right side
+        So we first divide our distribution into 4 equal parts i.e, the quartiles. 
+        and then we take range as q3 - q1 i..e, the 75th percentile and the 25th percentile 
+        IQR -> q3 - q1. 
+        . Now we calculate the range (lower and upper bounds)
+        . Lower bound = q1 - (1.5 * iqr)
+        . Upper bound = q3 + (1.5 * iqr)
+        We consider x values which are either < lower bound or > upper bound to be outliers 
+        Here 1.5 is the preferred and commonly used value, you can change it if you want.
+    
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+
+Feature engineering
+
+For transforming categorical values:
+
+    Nominal : (No order just some bunch of values)
+
+        One Hot Encoding :
+            Just make different column for each unique category present in the feature.
+            Remove one column (from the new one we just made), to get rid of dummy variable trap -> which
+            is, that we can infer or identify the removed col using the other cols present for the sample.
+
+            pd.get_dummies()
+
+        One hot Encoding with many categories:
+            Taken from a competition
+            how-> take top 10 most repeated categories and apply one hot encoding to them, ignore other cols.
+
+        Mean Encoding:
+            eg->
+            A            0
+            B            1
+            C            1
+            D            0
+            A            1
+            D            1
+            C            0
+            In this we just replace it with mean values(can be float or int)
+            check->Ordinal Encoding->Target Guided Ordinal Encoding.
+
+            
+    Ordinal: (with order like ratings)
+
+        Label Encoding:
+            Ml algorithm assign values to the different categories from 0 to n-1.
+            sklearn.preprocessing.LabelEncoder
+
+
+        Target Guided Ordinal Encoding:
+            eg->
+            input      output
+            A            0
+            B            1
+            C            1
+            D            0
+            A            1
+            D            1
+            C            0
+            Suppose our dataset is like this(classification problem in this case.)
+            we take the mean of each the categories, i.e., how many times was their 1
+            Let's assume we got mean something like this
+            A-> 0.7, B->0.6 .. so one
+            now we assign ranks/values based on these mean.
+            for eg-> as A has the highest mean so it will get the highest rank(i.e., 4).
+
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+
+Feature Selection
+
+    Variance Threshold:
+        drop features which have low variance i.e., more like constant features
+
+    Highly Correlated features:
+        Features with high correlation cause they are redundant, we often drop 1 feature if 2 are highly correlated ig.
+
+    More to continue -> https://www.youtube.com/watch?v=81JSbXZ26Ls&list=PLZoTAELRMXVPgjwJ8VyRoqmfNs2CJwhVH&index=3
+    sklearn -> https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection
