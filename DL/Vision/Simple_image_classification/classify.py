@@ -1,13 +1,11 @@
 from project.utils import test_transform, to_tensor
 from project.model import model
-import yaml
 import torch
 from PIL import Image
 import argparse
 
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"  # Make it dynamic too.
-config_path = "config/default_config.yaml"
 
 
 # classifying
@@ -55,9 +53,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Classify image (dog or cat)")
     parser.add_argument("-i", "--image", help="Image path")
     args = parser.parse_args()
-
-    with open(config_path, 'r') as f:
-        config = yaml.safe_load(f)
 
     image = args.image
     classify(image=image)
