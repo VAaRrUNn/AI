@@ -1,4 +1,7 @@
+# use git rm --cached file_name 
+
 DL/Neural/
 DL/learning_/
 Project_ideas.txt
+new_t.ipynb
 **/__pycache__/

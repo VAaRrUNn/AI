@@ -1,7 +1,0 @@
-OCR -> build something to detect what written in say images like 
-	the numbers written in a image, characters written image, etc
-Image -> anime (CLI)
-NanoGpt, (poetry etc,) (CLI)
-Object detection (Yolo)
-Text detection (numbers in image etc) (CLI)
-Guagan (Web)
