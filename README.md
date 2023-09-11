@@ -5,8 +5,8 @@
 
 - [Supervised Learning](https://github.com/VaruN-dev-dev/AI/tree/master/ML/Supervised)
     - [Decision Trees](https://github.com/VaruN-dev-dev/AI/tree/master/ML/Supervised/Decision_Trees)
-    - [Regression]()
-    - [Classification]()
+    - [Regression](https://github.com/VaruN-dev-dev/AI/tree/master/ML/Supervised/Regression)
+    - [Classification](https://github.com/VaruN-dev-dev/AI/tree/master/ML/Supervised/Classification)
     - [Naive Bayes](https://github.com/VaruN-dev-dev/AI/tree/master/ML/Supervised/Naive_bayes)
     - [SVM](https://github.com/VaruN-dev-dev/AI/tree/master/ML/Supervised/SVM)
 
@@ -17,7 +17,21 @@
 
 ## Deep Learning Projects:
 
-- [Natural Language Processing]()
+- [Natural Language Processing](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP)
+    - [Transformer](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/Transformer)
+    - [English-to-Hindi](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/English_to_Hindi)
+    - [Name Classification & Generation](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/Name_classification_generation)
 
-- [Vision]()
+
+- [Vision](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision)
+    - [Pro Gan](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision/ProGan)
+    - [UNet](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision/Unet)
+    - [Simple Image Classification](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision/Simple_image_classification)
+    - [Cycle Gan](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision/CycleGan)
+    - [Pix-2-Pix](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision/Pix2Pix)
+    - [VGG](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision/VGG)
+    - [Yolo](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision/YOLO)
+    - [Neural Style Transfer](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision/Neural_style_transfer)
+    - [ResNet](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision/ResNet)
+
 
