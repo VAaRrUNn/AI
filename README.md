@@ -21,6 +21,7 @@
     - [Transformer](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/Transformer)
     - [English-to-Hindi](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/English_to_Hindi)
     - [Name Classification & Generation](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/Name_classification_generation)
+    - [nanoGPT](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/nanoGPT)
 
 
 - [Vision](https://github.com/VaruN-dev-dev/AI/tree/master/DL/Vision)
