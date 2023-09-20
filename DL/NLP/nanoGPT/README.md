@@ -1,8 +1,6 @@
 # NanoGPT
 This is implementation of NanoGPT by [Andrej](https://github.com/karpathy/nanoGPT/tree/master).
 
-Colab -> 
-
 
 <div align="center">
     <h1>Quick Start</h1>
