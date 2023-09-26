@@ -1,4 +1,7 @@
-***Repo containing all my ML/DL/RL related Projects***
+***
+Repository containing all my ML/DL/RL related Projects.
+The purpose of this repository is to keep track of all AI realated Projects.
+***
 
 ## Deep Learning Projects:
 
