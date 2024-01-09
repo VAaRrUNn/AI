@@ -6,8 +6,9 @@ The purpose of this repository is to keep track of all AI realated Projects.
 ## Deep Learning Projects:
 
 - [Natural Language Processing](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP)
+    - [Machine Translation](https://github.com/VaruN-dev-dev/Machine-Translation)
+    - [Jest Genius(Fine-Tuned GPT)](https://github.com/VaruN-dev-dev/JestGenius)
     - [Transformer](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/Transformer)
-    - [English-to-Hindi](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/English_to_Hindi)
     - [Name Classification & Generation](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/Name_classification_generation)
     - [nanoGPT](https://github.com/VaruN-dev-dev/AI/tree/master/DL/NLP/nanoGPT)
 
